@@ -5,32 +5,44 @@ native D Core: an agent loop with tool registration and dispatch, policy hooks,
 typed events, memory, checkpoints, context budgets, middleware, JSON Schema
 validation, and plugin manifest parsing.
 
-This repository is the D publication split of
-[`axisvela/praxo-core`](https://github.com/axisvela/praxo-core). The source of
-truth, conformance vectors, and test runners remain in the main repository.
+The normative contract is [`spec/`](../../spec/README.md); Go remains the
+reference implementation.
 
 - `SPEC_VERSION`: `0.2.0`
 - Core version: `0.1.0`
 - Tier: core
 - License: MIT
 - Dependencies: D standard library only
+- Published on DUB/code.dlang.org as `praxo-core@0.1.0`
+
+## Registry and Coding-Agent Entry
+
+- Registry introduction: [REGISTRY.md](https://github.com/axisvela/praxo-core/blob/main/language/d/REGISTRY.md)
+- Machine-readable entry: [llms.txt](https://github.com/axisvela/praxo-core/blob/main/language/d/llms.txt) and [llms.md](https://github.com/axisvela/praxo-core/blob/main/language/d/llms.md)
+- Coding-agent contract: [docs/getting-started/coding-agents.md](https://github.com/axisvela/praxo-core/blob/main/docs/getting-started/coding-agents.md)
+- Registry: [DUB](https://code.dlang.org/packages/praxo-core)
+
+## Install
+
+```bash
+dub add praxo-core
+```
 
 ## Scope
 
 The Core implements all eleven vector groups: toolcall, JSON Schema, plugin,
 memory, event, stream, checkpoint, policy, context, middleware, and the agent
-loop. It includes a public API snapshot.
+loop. It includes a public API snapshot and a test runner.
 
-## Validation
-
-This split repository contains the DUB package only. Conformance and tests run
-in the [main repository](https://github.com/axisvela/praxo-core/tree/main/language/d):
+## Build and test
 
 ```bash
+mkdir -p build
 dmd -i -Isource -O -release source/conformance.d -of=build/conformance
 ./build/conformance
 dmd -i -Isource -O -release source/tests.d -of=build/tests
 ./build/tests
+python api-snapshot.py --check
 ```
 
 ## Quickstart
@@ -54,12 +66,38 @@ registry.register(new FuncTool("echo", "Echo arguments", (arguments) => argument
 options.tools = registry;
 ```
 
+## Harmovela Event Sink
+
+`HarmovelaSink` implements the native `EventSink` seam. It posts each event to
+`POST {baseUrl}/events` with the documented envelope. Supply `transport` to run
+without network access; it receives `(baseUrl, path, body, headers)` and returns
+a `HarmovelaResponse`. Supply `clock` to return `(seconds, nanos)` for
+deterministic ids and timestamps.
+
+```d
+import praxo.agent;
+import praxo.harmovela;
+import praxo.models;
+
+auto sink = new HarmovelaSink("http://127.0.0.1:8790/aep/api");
+auto options = new AgentOptions(new StaticModel("hello"));
+options.events = sink;
+auto result = runAgent(options, Session("demo"), "hello");
+```
+
+A 2xx status is success. Any other status throws `PraxoError` with code
+`HARMOVELA_HTTP`; a missing base URL throws `HARMOVELA_URL`. The sink adds no
+authentication, retries, buffering, ordering, or exactly-once delivery. Use
+HTTPS and caller-side filtering for sensitive event data. The default transport
+invokes `curl`; tests should inject a transport.
+
 ## Layout
 
 - `source/praxo/` package modules.
-- `api/0.1.0.txt` public API snapshot.
+- `source/conformance.d` vector runner.
+- `source/tests.d` test runner.
+- `api-snapshot.py` and `api/` public API snapshot.
 
 ## Release
 
-Tag shape: `v0.1.0`. The main source repository uses `d/v0.1.0`; this split
-repository is what code.dlang.org registers.
+Tag shape: `d/v0.1.0`. The tag targets `SPEC_VERSION` `0.2.0`.
