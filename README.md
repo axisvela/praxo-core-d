@@ -9,7 +9,7 @@ The normative contract is [`spec/`](../../spec/README.md); Go remains the
 reference implementation.
 
 - `SPEC_VERSION`: `0.2.0`
-- Core version: `0.4.0`
+- Core version: `0.5.0`
 - Tier: core
 - License: MIT
 - Dependencies: D standard library only
@@ -19,8 +19,10 @@ reference implementation.
 
 - Registry introduction: [REGISTRY.md](https://github.com/axisvela/praxo-core/blob/main/language/d/REGISTRY.md)
 - Machine-readable entry: [llms.txt](https://github.com/axisvela/praxo-core/blob/main/language/d/llms.txt) and [llms.md](https://github.com/axisvela/praxo-core/blob/main/language/d/llms.md)
+- [Examples](https://github.com/axisvela/praxo-core/tree/main/language/d/examples): runnable language-specific examples.
 - Coding-agent contract: [docs/getting-started/coding-agents.md](https://github.com/axisvela/praxo-core/blob/main/docs/getting-started/coding-agents.md)
 - Registry: [DUB](https://code.dlang.org/packages/praxo-core)
+- Community: [X](https://x.com/axisvela) · [Weibo](https://weibo.com/u/1936025761)
 
 ## Install
 
@@ -138,4 +140,4 @@ asynchronous manager or durable worker is required.
 
 ## Release
 
-Tag shape: `d/v0.4.0`. The tag targets `SPEC_VERSION` `0.2.0`.
+Tag shape: `d/v0.5.0`. The tag targets `SPEC_VERSION` `0.2.0`.
