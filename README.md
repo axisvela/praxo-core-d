@@ -6,15 +6,41 @@ human-in-the-loop interrupt decisions, typed events, memory, checkpoints,
 context budgets, middleware, JSON Schema validation, and plugin manifest
 parsing.
 
+## Features
+
+- A native D agent loop with tool registration and dispatch.
+- Policy hooks, tool scope, HITL decisions, events, memory, context budgets,
+  middleware, checkpoints, JSON Schema, and plugin manifests.
+- OpenAI-compatible, Anthropic, and Gemini adapters over an injectable
+  transport.
+- MCP, OpenTelemetry, Harmovela, retriever, and synchronous delegation seams.
+- An API snapshot and a native test runner.
+- MIT-licensed and D standard library only.
+
+## Limits
+
+- Core is an execution framework, not a model provider, hosted agent service,
+  crawler, workflow engine, or production sandbox.
+- Checkpoints are recovery hints, not transactions. Core does not provide
+  durable execution, exactly-once effects, or an effect ledger.
+- Provider credentials, authentication, retries, and durable state remain
+  application-owned.
+- The DUB package may lag the split tag; check the published version before
+  relying on a feature.
+- Go remains the reference implementation; full Go feature parity is not
+  claimed.
+
 The normative contract is [`spec/`](../../spec/README.md); Go remains the
 reference implementation.
 
+## Package
+
 - `SPEC_VERSION`: `0.2.0`
-- Core version: `0.6.0`
+- Core version: `0.6.1`
 - Tier: core
 - License: MIT
 - Dependencies: D standard library only
-- Published on DUB/code.dlang.org as `praxo-core@0.1.0`
+- Published on DUB/code.dlang.org as `praxo-core@0.4.0`; this split source is `0.6.1`
 
 ## Registry and Coding-Agent Entry
 
@@ -153,4 +179,5 @@ asynchronous manager or durable worker is required.
 
 ## Release
 
-Tag shape: `d/v0.6.0`. The tag targets `SPEC_VERSION` `0.2.0`.
+Split package tag: `v0.6.1`. The monorepo source tag is `d/v0.7.0`; this split
+package targets `SPEC_VERSION` `0.2.0`.

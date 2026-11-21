@@ -1,5 +1,14 @@
 # D Core Release Notes
 
+## 0.6.1 - 2026-11-21
+
+Split package tag `v0.6.1`.
+
+### Changed
+
+- Expanded the DUB README and package description with Features and Limits. No
+  public API or wire change; `SPEC_VERSION` remains `0.2.0`.
+
 ## 0.6.0 - 2026-11-15
 
 Source tag `d/v0.6.0`.
