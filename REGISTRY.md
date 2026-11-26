@@ -1,7 +1,7 @@
 # PRAXO-CORE D Registry Introduction
 
-**Status:** published. Source version `0.6.0`, source
-tag `d/v0.6.0`. Published registry version: `0.4.0`. Registry
+**Status:** published; split package 0.6.1; source 0.7.0. Source version `0.8.0`, source
+tag `d/v0.8.0`. Published registry version: `0.6.1`. Registry
 pages are release snapshots; verify the published version before relying on a
 feature.
 
@@ -15,11 +15,11 @@ PRAXO-CORE is an embeddable, MIT-licensed agent framework. This package is its n
 | --- | --- |
 | Package | `praxo-core` |
 | Registry | [DUB](https://code.dlang.org/packages/praxo-core) |
-| Source version | `0.6.0` |
-| Published registry version | `0.4.0` |
+| Source version | `0.8.0` |
+| Published registry version | `0.6.1` |
 | Install (published) | `dub add praxo-core` |
 | Install (source/release prepared) | `dub add praxo-core` |
-| Source tag | `d/v0.6.0` |
+| Source tag | `d/v0.8.0` |
 | Tier | Core |
 | Contract | `SPEC_VERSION` `0.2.0` |
 | Documentation | https://axisvela.github.io/praxo-core/languages/d/ |
@@ -28,9 +28,9 @@ PRAXO-CORE is an embeddable, MIT-licensed agent framework. This package is its n
 
 | Adapter | Status | Detail |
 | --- | --- | --- |
-| OpenAI-compatible model | native (transport seam) | `OpenAICompatibleModel`; caller may inject transport |
-| Anthropic model | native (transport seam) | `AnthropicModel`; caller may inject transport |
-| Gemini model | native (transport seam) | `GeminiModel`; caller may inject transport |
+| OpenAI-compatible model | native (transport seam) | `OpenAICompatibleModel`; caller may inject transport; SSE streaming reassembly |
+| Anthropic model | native (transport seam) | `AnthropicModel`; caller may inject transport; SSE streaming reassembly |
+| Gemini model | native (transport seam) | `GeminiModel`; caller may inject transport; SSE streaming |
 | MCP client | native | `praxo.mcp.McpClient`; stdio, plus `HttpMcpTransport` for Streamable HTTP 2025-03-26 |
 | Harmovela sink | native | `HarmovelaSink` |
 | OpenTelemetry sink | native (transport seam) | `OtelSink`; caller supplies OTLP/HTTP transport |
@@ -40,6 +40,7 @@ PRAXO-CORE is an embeddable, MIT-licensed agent framework. This package is its n
 ## Coding-agent entry
 
 - [Examples](https://github.com/axisvela/praxo-core/tree/main/language/d/examples): runnable language-specific examples.
+- [Scenario tutorials](https://github.com/axisvela/praxo-core/tree/main/language/d/Tutorial): scenario-oriented tutorials.
 - [llms.txt](llms.txt): compact machine-readable entry for this language.
 - [llms.md](llms.md): Markdown version of the same entry.
 - [Coding-agent contract](../../docs/getting-started/coding-agents.md): explicit
@@ -49,6 +50,14 @@ PRAXO-CORE is an embeddable, MIT-licensed agent framework. This package is its n
 
 - X: <https://x.com/axisvela>
 - Weibo: <https://weibo.com/u/1936025761>
+- LinkedIn: <https://www.linkedin.com/company/axisvela/>
+- Facebook: <https://www.facebook.com/profile.php?id=61596905732406>
+- YouTube: <https://www.youtube.com/@axisvela>
+- Discord: <https://discord.com/channels/1575163993767809064/1575164343148875977>
+- GitHub Discussions: <https://github.com/axisvela/praxo-core/discussions>
+- GitHub Issues: <https://github.com/axisvela/praxo-core/issues>
+- Documentation: <https://axisvela.github.io/praxo-core/>
+- Architect: <https://axisvela.architect.pub>
 
 ## Boundaries
 

@@ -1,13 +1,23 @@
 # D Core Release Notes
 
-## 0.6.1 - 2026-11-21
+## 0.8.0 - 2026-11-26
 
-Split package tag `v0.6.1`.
+Source tag `d/v0.8.0`.
 
-### Changed
+- Minor release for AI-native reference applications, scenario tutorials, and the Go examples layout refresh.
 
-- Expanded the DUB README and package description with Features and Limits. No
-  public API or wire change; `SPEC_VERSION` remains `0.2.0`.
+## 0.7.0 - 2026-11-20
+
+Source tag `d/v0.7.0`.
+
+### Added
+
+- `ProcessHost` supervises a JSON-Lines plugin child with token
+  authentication.
+- Deterministic representative-chain example covering MCP, final-argument
+  authorization, governed child delegation, OTel/Harmovela events, and an edited
+  denial with zero effects.
+- Advanced-delegation example plus six application-level governance checks.
 
 ## 0.6.0 - 2026-11-15
 
@@ -21,7 +31,7 @@ Source tag `d/v0.6.0`.
   `AGENT_INTERRUPT_DECISION_INVALID` errors.
 - `AgentOptions.interruptOn`, `onInterruptDecision`, `onInterrupt`, and
   before-tool middleware ordering.
-- Deterministic HITL core tests and `examples/hitl`.
+- Deterministic HITL core tests and `language/go/examples/hitl`.
 
 ## 0.5.0 - 2026-11-15
 

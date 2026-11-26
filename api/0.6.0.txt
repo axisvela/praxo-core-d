@@ -5,12 +5,15 @@ Action
 Agent
 AgentOptions
 AnthropicModel
+AnthropicStreamCall
 ApprovalDeniedError
+CONTROL_SERVICE
 CallLimit
 CheckpointAllowlist
 CompactResult
 ContentBlock
 ContextBudget
+DEFAULT_TOKEN_ENV
 Decision
 Document
 Event
@@ -27,6 +30,8 @@ Interrupt
 InterruptDecision
 InterruptDecisionInvalidError
 InterruptUnhandledError
+METHOD_HEALTH
+METHOD_SHUTDOWN
 McpClient
 McpToolInfo
 McpTransport
@@ -39,12 +44,16 @@ MultiSink
 OpenAICompatibleModel
 OtelResponse
 OtelSink
+PROTOCOL_VERSION
 ParsedToolCall
+PartialCall
 PathChecker
 PathGrant
 PiiRedactor
 PluginManifest
 PraxoError
+ProcessConfig
+ProcessHost
 Registry
 Request
 Response
@@ -52,6 +61,7 @@ RunResult
 Session
 StaticModel
 StdioMcpTransport
+StreamingModel
 StructuredOutput
 StructuredResult
 SubagentManager
@@ -72,6 +82,7 @@ beforeModel
 beforeTool
 bounded
 buildPayload
+call
 callTool
 check
 close
@@ -92,6 +103,7 @@ fallbackModel
 filter
 flush
 generate
+generateStream
 get
 getArray
 getBool
@@ -99,6 +111,7 @@ getInt
 getString
 hasKey
 if
+invoke
 listTools
 loopback
 marshal
@@ -112,10 +125,12 @@ parseInputJson
 parseManifest
 parseResponse
 parseSse
+parseStreamResponse
 parseToolCall
 plus
 post
 postJSON
+postText
 put
 redact
 redactValue
@@ -131,6 +146,7 @@ runSubagent
 search
 specs
 start
+stop
 string
 stringify
 stripMarkup

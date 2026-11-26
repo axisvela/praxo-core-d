@@ -8,20 +8,20 @@
 
 - package: `praxo-core`
 - registry: [DUB](https://code.dlang.org/packages/praxo-core)
-- source_version: `0.6.0`
-- published_version: `0.4.0`
+- source_version: `0.8.0`
+- published_version: `0.6.1`
 - install_published: `dub add praxo-core`
 - install_source: `dub add praxo-core`
-- source_tag: `d/v0.6.0`
+- source_tag: `d/v0.8.0`
 - tier: Core
 - contract: `SPEC_VERSION` `0.2.0`
 - documentation: https://axisvela.github.io/praxo-core/languages/d/
 
 ## Capabilities and Status
 
-- OpenAI-compatible model: native (transport seam) (`OpenAICompatibleModel`; caller may inject transport)
-- Anthropic model: native (transport seam) (`AnthropicModel`; caller may inject transport)
-- Gemini model: native (transport seam) (`GeminiModel`; caller may inject transport)
+- OpenAI-compatible model: native (transport seam) (`OpenAICompatibleModel`; caller may inject transport; SSE streaming reassembly)
+- Anthropic model: native (transport seam) (`AnthropicModel`; caller may inject transport; SSE streaming reassembly)
+- Gemini model: native (transport seam) (`GeminiModel`; caller may inject transport; SSE streaming)
 - MCP client: native (`praxo.mcp.McpClient`; stdio, plus `HttpMcpTransport` for Streamable HTTP 2025-03-26)
 - Harmovela sink: native (`HarmovelaSink`)
 - OpenTelemetry sink: native (transport seam) (`OtelSink`; caller supplies OTLP/HTTP transport)
@@ -35,12 +35,21 @@
 - Markdown entry: `llms.md`
 - Compact entry: `llms.txt`
 - [Examples](https://github.com/axisvela/praxo-core/tree/main/language/d/examples): runnable language-specific examples.
+- [Scenario tutorials](https://github.com/axisvela/praxo-core/tree/main/language/d/Tutorial): scenario-oriented tutorials.
 - Coding-agent contract: ../../docs/getting-started/coding-agents.md
 
 ## Community
 
 - X: <https://x.com/axisvela>
 - Weibo: <https://weibo.com/u/1936025761>
+- LinkedIn: <https://www.linkedin.com/company/axisvela/>
+- Facebook: <https://www.facebook.com/profile.php?id=61596905732406>
+- YouTube: <https://www.youtube.com/@axisvela>
+- Discord: <https://discord.com/channels/1575163993767809064/1575164343148875977>
+- GitHub Discussions: <https://github.com/axisvela/praxo-core/discussions>
+- GitHub Issues: <https://github.com/axisvela/praxo-core/issues>
+- Documentation: <https://axisvela.github.io/praxo-core/>
+- Architect: <https://axisvela.architect.pub>
 
 ## Boundaries
 

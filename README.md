@@ -25,8 +25,8 @@ parsing.
   durable execution, exactly-once effects, or an effect ledger.
 - Provider credentials, authentication, retries, and durable state remain
   application-owned.
-- The DUB package may lag the split tag; check the published version before
-  relying on a feature.
+- The DUB package is `0.8.0` and matches source `0.8.0`; source features are in
+  the split package. Use the source tree for the newer tag.
 - Go remains the reference implementation; full Go feature parity is not
   claimed.
 
@@ -36,11 +36,11 @@ reference implementation.
 ## Package
 
 - `SPEC_VERSION`: `0.2.0`
-- Core version: `0.6.1`
+- Core version: `0.8.0`
 - Tier: core
 - License: MIT
 - Dependencies: D standard library only
-- Published on DUB/code.dlang.org as `praxo-core@0.4.0`; this split source is `0.6.1`
+- Published on DUB/code.dlang.org as `praxo-core@0.8.0`
 
 ## Registry and Coding-Agent Entry
 
@@ -49,7 +49,7 @@ reference implementation.
 - [Examples](https://github.com/axisvela/praxo-core/tree/main/language/d/examples): runnable language-specific examples.
 - Coding-agent contract: [docs/getting-started/coding-agents.md](https://github.com/axisvela/praxo-core/blob/main/docs/getting-started/coding-agents.md)
 - Registry: [DUB](https://code.dlang.org/packages/praxo-core)
-- Community: [X](https://x.com/axisvela) · [Weibo](https://weibo.com/u/1936025761)
+- Community: [X](https://x.com/axisvela) · [Weibo](https://weibo.com/u/1936025761) · [LinkedIn](https://www.linkedin.com/company/axisvela/) · [Facebook](https://www.facebook.com/profile.php?id=61596905732406) · [YouTube](https://www.youtube.com/@axisvela) · [Discord](https://discord.com/channels/1575163993767809064/1575164343148875977) · [GitHub Discussions](https://github.com/axisvela/praxo-core/discussions) · [GitHub Issues](https://github.com/axisvela/praxo-core/issues) · [Documentation](https://axisvela.github.io/praxo-core/) · [Architect](https://axisvela.architect.pub)
 
 ## Install
 
@@ -62,6 +62,14 @@ dub add praxo-core
 The Core implements all eleven vector groups: toolcall, JSON Schema, plugin,
 memory, event, stream, checkpoint, policy, context, middleware, and the agent
 loop. It includes a public API snapshot and a test runner.
+
+## Representative Flows
+
+- [Representative chain](language/go/examples/representative-chain/): deterministic MCP
+  record, final-argument authorization, child delegation, OTel/Harmovela events,
+  and an edited denial with zero effects.
+- [Advanced delegation](language/go/examples/advanced-delegation/): application-level
+  parent/child scope plus six governance negative checks.
 
 ## Build and test
 
@@ -99,7 +107,7 @@ options.tools = registry;
 
 - `OpenAICompatibleModel` for OpenAI, DeepSeek, Kimi/Moonshot, and other
   OpenAI-compatible endpoints.
-- `AnthropicModel` for the Anthropic Messages API.
+- `AnthropicModel` for the Anthropic Messages API, including `generateStream` SSE reassembly.
 - `GeminiModel` for the Gemini generateContent API.
 
 Each adapter accepts a `ProviderTransport` delegate for deterministic tests.
@@ -179,5 +187,4 @@ asynchronous manager or durable worker is required.
 
 ## Release
 
-Split package tag: `v0.6.1`. The monorepo source tag is `d/v0.7.0`; this split
-package targets `SPEC_VERSION` `0.2.0`.
+Tag shape: `d/v0.8.0`. The tag targets `SPEC_VERSION` `0.2.0`.
